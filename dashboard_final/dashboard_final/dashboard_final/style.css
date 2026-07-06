@@ -1,0 +1,814 @@
+/* =====================================================
+   DASHBOARD TERRITORIAL — VERSION PREMIUM
+   Région Guelmim-Oued Noun
+===================================================== */
+
+:root{
+  --bg:#eef3f9;
+  --paper:#ffffff;
+  --paper2:#f8fafc;
+  --ink:#0b1220;
+  --muted:#64748b;
+  --soft:#94a3b8;
+  --line:#e2e8f0;
+  --brand:#1d4ed8;
+  --brand-dark:#1e3a8a;
+  --cyan:#06b6d4;
+  --green:#10b981;
+  --orange:#f97316;
+  --red:#ef4444;
+  --side:#06111f;
+  --radius:28px;
+  --radius-lg:36px;
+  --shadow:0 28px 90px rgba(15,23,42,.14);
+  --shadow-soft:0 14px 40px rgba(15,23,42,.09);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(29,78,216,.16), transparent 30%),
+    radial-gradient(circle at 95% 5%, rgba(6,182,212,.16), transparent 26%),
+    linear-gradient(180deg,#f8fbff 0%,var(--bg) 45%,#edf2f7 100%);
+}
+
+.app{min-height:100vh;display:flex}
+
+/* ================= SIDEBAR ================= */
+.sidebar{
+  position:fixed;left:0;top:0;bottom:0;
+  width:310px;height:100vh;
+  padding:22px 18px;
+  background:
+    linear-gradient(180deg,rgba(6,17,31,.98),rgba(15,23,42,.98)),
+    radial-gradient(circle at 50% 0%,rgba(37,99,235,.35),transparent 40%);
+  color:#fff;
+  overflow:auto;
+  border-right:1px solid rgba(255,255,255,.08);
+  z-index:20;
+}
+
+.brand-vertical{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:14px 10px 24px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.region-logo-large{
+  width:190px;
+  max-width:100%;height:auto;
+  display:block;margin:0 auto 16px;
+  object-fit:contain;
+  filter:drop-shadow(0 14px 28px rgba(0,0,0,.35));
+  transition:.3s ease;
+}
+.region-logo-large:hover{transform:scale(1.035)}
+.brand-vertical h2{margin:4px 0 6px;font-size:20px;line-height:1.18;letter-spacing:-.02em}
+.brand-vertical p{margin:0;color:#dbeafe;font-weight:800;font-size:13px}
+.brand-vertical small{margin-top:5px;color:#94a3b8;font-size:12px}
+
+.menu-label{
+  margin:24px 10px 10px;
+  color:#94a3b8;
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:900;
+}
+
+.nav{
+  width:100%;border:0;cursor:pointer;
+  display:flex;align-items:center;gap:13px;
+  padding:14px 15px;margin:9px 0;
+  border-radius:18px;
+  color:#dbeafe;
+  background:rgba(255,255,255,.055);
+  text-align:left;font-size:14px;
+  transition:.24s ease;
+}
+.nav span{width:26px;font-size:19px;text-align:center}
+.nav b{font-weight:900}
+.nav:hover,.nav.active{
+  color:#fff;
+  transform:translateX(5px);
+  background:linear-gradient(135deg,rgba(37,99,235,.78),rgba(6,182,212,.32));
+  box-shadow:0 14px 35px rgba(37,99,235,.24);
+}
+
+/* ================= MAIN ================= */
+.main{margin-left:310px;width:calc(100% - 310px);padding:30px;}
+.page{display:none;animation:fadeIn .28s ease}
+.page.active{display:block}
+.hidden{display:none!important}
+@keyframes fadeIn{from{opacity:.45;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ================= HERO ================= */
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(248,251,255,.90));
+  border:1px solid rgba(255,255,255,.86);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow);
+  padding:34px;
+  margin-bottom:24px;
+}
+.hero:after{
+  content:"";position:absolute;right:-110px;top:-140px;width:430px;height:430px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(29,78,216,.20),rgba(6,182,212,.17));
+  z-index:0;
+}
+.hero>*{position:relative;z-index:1}
+.hero-home{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(260px,.55fr);gap:28px;align-items:center}
+.compact-hero{padding:30px 34px}
+.prediction-hero:after{background:linear-gradient(135deg,rgba(16,185,129,.20),rgba(37,99,235,.16))}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  color:#1d4ed8;background:#eff6ff;
+  border:1px solid #dbeafe;
+  border-radius:999px;
+  padding:8px 13px;
+  font-size:12px;font-weight:950;
+  margin-bottom:15px;
+}
+.hero h1{margin:0 0 13px;font-size:44px;line-height:1.05;letter-spacing:-.055em}
+.hero p{margin:0;max-width:960px;color:#475569;font-size:16px;line-height:1.75}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.primary-btn,.secondary-btn,.back-btn,.pill-btn{
+  border:0;border-radius:999px;cursor:pointer;font-weight:950;
+  padding:12px 17px;transition:.22s ease;
+}
+.primary-btn{background:linear-gradient(135deg,#2563eb,#06b6d4);color:white;box-shadow:0 16px 35px rgba(37,99,235,.25)}
+.secondary-btn,.back-btn,.pill-btn{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
+.primary-btn:hover,.secondary-btn:hover,.back-btn:hover,.pill-btn:hover{transform:translateY(-2px)}
+.home-logo-card{
+  display:grid;place-items:center;
+  min-height:260px;border-radius:32px;
+  background:linear-gradient(145deg,#fff,#f1f5f9);
+  border:1px solid #e2e8f0;
+  box-shadow:var(--shadow-soft);
+}
+.home-logo-card img{width:230px;max-width:80%;height:auto;filter:drop-shadow(0 18px 35px rgba(15,23,42,.18))}
+
+/* ================= CARDS ================= */
+.intro-card,.meta-card,.chart-card,.overview-card,.domain-card{
+  background:rgba(255,255,255,.96);
+  border:1px solid rgba(255,255,255,.92);
+  box-shadow:var(--shadow-soft);
+  border-radius:var(--radius);
+}
+.intro-card{padding:26px;margin-bottom:18px}
+.intro-card h2{margin:0 0 11px;font-size:25px;letter-spacing:-.025em}
+.intro-card p,.intro-card li{color:#475569;line-height:1.75}
+.technical-note{background:#f8fafc;border:1px dashed #cbd5e1;padding:12px 14px;border-radius:18px;color:#64748b!important}
+
+.overview-grid,.cards-grid,.meta-grid{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:22px 0;
+}
+.overview-card{padding:22px;transition:.24s ease}
+.overview-card span{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:14px;background:#eff6ff;color:#1d4ed8;font-weight:950;margin-bottom:14px}
+.overview-card h3{margin:0 0 8px;font-size:20px}
+.overview-card p{margin:0;color:#64748b;line-height:1.6}
+.overview-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+
+/* Cards accueil cliquables vers les dossiers du dashboard */
+.overview-link{
+  text-decoration:none !important;
+  color:inherit !important;
+  cursor:pointer !important;
+}
+.overview-link h3,
+.overview-link p{
+  text-decoration:none !important;
+}
+.overview-link:focus{
+  outline:3px solid rgba(37,99,235,.25);
+  outline-offset:4px;
+}
+
+.domain-card{
+  position:relative;overflow:hidden;min-height:245px;padding:25px;cursor:pointer;transition:.25s ease;
+}
+.domain-card:before{content:"";position:absolute;left:0;top:0;right:0;height:9px;background:var(--grad)}
+.domain-card:after{content:"";position:absolute;right:-45px;bottom:-55px;width:160px;height:160px;border-radius:50%;background:var(--grad);opacity:.10}
+.domain-card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.domain-icon{font-size:38px;margin:10px 0 15px}
+.domain-card h3{font-size:23px;margin:0 0 9px;letter-spacing:-.03em}
+.domain-card p{margin:0 0 20px;color:#64748b;line-height:1.6}
+.domain-card .go{font-weight:950;color:#1d4ed8}
+
+/* ================= DOMAIN / TABS ================= */
+.domain-section{display:none}
+.domain-section.active{display:block}
+.domain-header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:20px 0}
+.domain-header h2{font-size:32px;margin:0;letter-spacing:-.04em}
+.domain-header p{margin:7px 0 0;color:#64748b;line-height:1.55}
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.pill-btn.active{background:#1d4ed8;color:#fff;border-color:#1d4ed8;box-shadow:0 12px 28px rgba(29,78,216,.2)}
+.dataset-panel{display:none}
+.dataset-panel.active{display:block}
+.dataset-intro{background:linear-gradient(135deg,#fff,#f8fbff)}
+
+/* ================= CHARTS ================= */
+.charts-grid{display:grid;grid-template-columns:1fr;gap:22px;margin-bottom:30px}
+.chart-card{overflow:hidden;padding:0;border-color:#e5e7eb}
+.chart-top{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:18px;
+  padding:22px 24px;
+  border-bottom:1px solid #e2e8f0;
+  background:linear-gradient(180deg,#ffffff,#f8fafc);
+}
+.chart-index{
+  display:inline-flex;margin-bottom:8px;
+  color:#1d4ed8;background:#eff6ff;border:1px solid #dbeafe;
+  font-size:11px;font-weight:950;letter-spacing:.08em;text-transform:uppercase;
+  border-radius:999px;padding:6px 10px;
+}
+.chart-top h3{margin:0;font-size:21px;letter-spacing:-.02em}
+.source-pill{white-space:nowrap;color:#047857;background:#ecfdf5;border:1px solid #bbf7d0;border-radius:999px;padding:7px 11px;font-size:12px;font-weight:950}
+.plot{width:100%;height:560px;padding:8px 10px 0}
+.plot-error{color:#dc2626;padding:22px;font-weight:800}
+.empty-card{padding:25px;color:#64748b}
+.empty-card code{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:3px 6px;color:#0f172a}
+.interpretation{margin:0 24px 24px;padding:18px 20px;border-radius:22px;background:#f8fafc;border:1px solid #e2e8f0;color:#475569}
+.interpretation b{color:#0f172a}
+.interpretation p{margin:7px 0 0;line-height:1.65}
+
+/* ================= METADATA ================= */
+.meta-card{padding:23px}
+.meta-card h3{margin:0 0 13px;font-size:20px}
+.meta-card ul{margin:0;padding-left:18px;color:#475569;line-height:1.85}
+
+/* ================= SCROLLBAR ================= */
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:#e2e8f0}
+::-webkit-scrollbar-thumb{background:#94a3b8;border-radius:999px}
+::-webkit-scrollbar-thumb:hover{background:#64748b}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width:1180px){
+  .cards-grid,.overview-grid,.meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-home{grid-template-columns:1fr}.home-logo-card{min-height:210px}.plot{height:500px}
+}
+@media (max-width:820px){
+  .sidebar{position:relative;width:100%;height:auto;border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .main{margin-left:0;width:100%;padding:18px}
+  .app{display:block}
+  .region-logo-large{width:150px}
+  .hero{padding:24px;border-radius:28px}
+  .hero h1{font-size:34px}
+  .cards-grid,.overview-grid,.meta-grid{grid-template-columns:1fr}
+  .domain-header,.chart-top{flex-direction:column;align-items:flex-start}
+  .plot{height:430px}
+}
+
+
+/* Corrections ajoutées : graphiques plus lisibles */
+.chart-card{overflow:visible;}
+.plot{min-height:560px; width:100%;}
+.plot[id^="plot-age-"]{min-height:780px;}
+.dataset-panel{overflow:visible;}
+.chart-grid{grid-template-columns:1fr;}
+.technical-note{font-size:13px;color:#475569;background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:10px 12px;}
+
+
+/* ================= METADONNEES EDITABLES ================= */
+.metadata-hero{background:linear-gradient(135deg,#ffffff,#f0f9ff)}
+.metadata-help-card{
+  background:#ffffff;border:1px solid #dbeafe;border-radius:24px;
+  padding:20px 24px;margin:20px 0;box-shadow:var(--shadow-soft);
+}
+.metadata-help-card h3{margin:0 0 8px;font-size:21px;color:#0f172a}
+.metadata-help-card p{margin:0;color:#475569;line-height:1.7}
+.metadata-docs-grid{display:grid;grid-template-columns:1fr;gap:22px;margin:22px 0 34px}
+.metadata-doc-card{
+  background:#ffffff;border:1px solid #e2e8f0;border-radius:28px;
+  box-shadow:var(--shadow-soft);overflow:hidden;
+}
+.metadata-doc-head{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+  padding:22px 24px;border-bottom:1px solid #e2e8f0;
+  background:linear-gradient(180deg,#ffffff,#f8fafc);
+}
+.metadata-doc-head h2{margin:0;font-size:24px;letter-spacing:-.03em;color:#0f172a}
+.edit-pill{white-space:nowrap;color:#1d4ed8;background:#eff6ff;border:1px solid #bfdbfe;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:950}
+.metadata-doc-body{padding:24px;line-height:1.8;color:#334155;outline:none}
+.metadata-doc-body:focus{background:#fcfdff;box-shadow:inset 0 0 0 3px rgba(37,99,235,.12)}
+.metadata-doc-body h3{font-size:20px;margin:24px 0 10px;color:#1e3a8a}
+.metadata-doc-body h4{font-size:17px;margin:18px 0 6px;color:#0f172a}
+.metadata-doc-body p{margin:7px 0}
+.metadata-bullet{padding-left:14px;border-left:3px solid #dbeafe;background:#f8fafc;border-radius:10px;padding-top:4px;padding-bottom:4px}
+.meta-table{width:100%;border-collapse:collapse;margin:14px 0;border-radius:16px;overflow:hidden;border:1px solid #e2e8f0}
+.meta-table th,.meta-table td{padding:12px 14px;border:1px solid #e2e8f0;text-align:left;vertical-align:top}
+.meta-table th{background:#eff6ff;color:#1e3a8a;font-weight:950}
+
+
+/* ================= DOCUMENTS TELECHARGEABLES ================= */
+.metadata-download-panel{
+  background:#ffffff;
+  border:1px solid #dbeafe;
+  border-radius:28px;
+  padding:24px;
+  margin:22px 0 26px;
+  box-shadow:var(--shadow-soft);
+}
+.metadata-download-head h2{
+  margin:6px 0 8px;
+  font-size:28px;
+  letter-spacing:-.03em;
+  color:#0f172a;
+}
+.metadata-download-head p{
+  margin:0;
+  color:#475569;
+  line-height:1.7;
+}
+.download-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:18px;
+  margin-top:20px;
+}
+.download-card{
+  display:block;
+  min-height:190px;
+  padding:22px;
+  border-radius:22px;
+  text-decoration:none;
+  color:#0f172a;
+  background:linear-gradient(180deg,#ffffff,#f8fafc);
+  border:1px solid #e2e8f0;
+  box-shadow:0 12px 28px rgba(15,23,42,.07);
+  transition:.25s ease;
+}
+.download-card:hover{
+  transform:translateY(-6px);
+  border-color:#93c5fd;
+  box-shadow:0 20px 40px rgba(29,78,216,.16);
+}
+.download-icon{
+  display:inline-flex;
+  width:44px;
+  height:44px;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  background:#eff6ff;
+  font-size:22px;
+  margin-bottom:12px;
+}
+.download-card h3{
+  margin:0 0 8px;
+  font-size:19px;
+  color:#0f172a;
+}
+.download-card p{
+  margin:0 0 16px;
+  color:#64748b;
+  line-height:1.55;
+  font-size:14px;
+}
+.download-card b{
+  color:#1d4ed8;
+  font-size:13px;
+}
+
+/* =====================================================
+   CORRECTION FINALE — CARTES DE MEME TAILLE
+   Cette partie force les cards du Dashboard, Accueil,
+   Prédiction et Métadonnées à garder des dimensions homogènes.
+===================================================== */
+
+/* Grilles principales : largeur équilibrée et cartes alignées */
+.cards-grid,
+.overview-grid,
+.download-grid{
+  display:grid !important;
+  align-items:stretch !important;
+  gap:22px !important;
+}
+
+.cards-grid{
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)) !important;
+}
+
+.overview-grid{
+  grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)) !important;
+}
+
+.download-grid{
+  grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
+}
+
+/* Même hauteur et même structure interne */
+.domain-card,
+.overview-card,
+.download-card{
+  height:100% !important;
+  min-height:250px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-start !important;
+  align-items:flex-start !important;
+}
+
+.overview-card{
+  min-height:190px !important;
+}
+
+.download-card{
+  min-height:230px !important;
+}
+
+/* Le texte occupe l'espace et le bouton reste aligné en bas */
+.domain-card p,
+.overview-card p,
+.download-card p{
+  flex:1 1 auto !important;
+}
+
+.domain-card .go,
+.download-card b{
+  margin-top:auto !important;
+}
+
+/* Titres limités pour éviter qu'une carte devienne plus grande */
+.domain-card h3,
+.overview-card h3,
+.download-card h3{
+  min-height:32px !important;
+  line-height:1.25 !important;
+}
+
+.download-card h3{
+  min-height:48px !important;
+}
+
+/* Icônes régulières */
+.domain-icon,
+.download-icon,
+.overview-card span{
+  flex:0 0 auto !important;
+}
+
+/* Métadonnées : panneau plus propre */
+.metadata-download-panel{
+  overflow:hidden !important;
+}
+
+/* Responsive tablette */
+@media (max-width:1180px){
+  .download-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Responsive mobile */
+@media (max-width:760px){
+  .cards-grid,
+  .overview-grid,
+  .download-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .domain-card,
+  .overview-card,
+  .download-card{
+    min-height:auto !important;
+  }
+}
+
+
+
+/* =====================================================
+   CORRECTION DEFINITIVE : CARTES + GRAPHIQUES PLUS GRANDS
+   - Les graphiques ne sont plus écrasés.
+   - Suppression du range hérité dans script.js pour les graphiques non pyramide.
+===================================================== */
+.charts-grid{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:30px !important;
+  align-items:start !important;
+}
+.chart-card{
+  overflow:visible !important;
+  border-radius:28px !important;
+  background:#fff !important;
+  border:1px solid #e2e8f0 !important;
+  box-shadow:0 18px 45px rgba(15,23,42,.08) !important;
+  padding:0 !important;
+  max-width:100% !important;
+}
+.chart-top{
+  min-height:88px !important;
+  padding:20px 26px !important;
+  border-bottom:1px solid #e2e8f0 !important;
+}
+.plot{
+  height:650px !important;
+  min-height:650px !important;
+  max-height:none !important;
+  width:100% !important;
+  padding:8px 18px 20px !important;
+  overflow:visible !important;
+}
+.plot[id="plot-age-0"]{
+  height:760px !important;
+  min-height:760px !important;
+}
+.js-plotly-plot,
+.plot .plot-container,
+.plot .svg-container{
+  width:100% !important;
+  max-width:100% !important;
+}
+@media (max-width:1180px){
+  .plot{height:560px !important;min-height:560px !important;padding:6px 10px 16px !important;}
+  .plot[id="plot-age-0"]{height:680px !important;min-height:680px !important;}
+}
+@media (max-width:760px){
+  .plot{height:500px !important;min-height:500px !important;padding:0 4px 12px !important;}
+  .plot[id="plot-age-0"]{height:600px !important;min-height:600px !important;}
+  .chart-top{min-height:auto !important;padding:16px !important;}
+}
+
+
+/* =====================================================
+   FIX FINAL : ESPACEMENT ENTRE TITRE DE CARTE ET GRAPHIQUE
+===================================================== */
+.chart-top{
+  position:relative !important;
+  z-index:2 !important;
+}
+.chart-top h3{
+  line-height:1.25 !important;
+  margin:8px 0 0 !important;
+}
+.plot{
+  padding-top:28px !important;
+  overflow:hidden !important;
+}
+.plot[id="plot-age-0"]{
+  padding-top:34px !important;
+}
+.plot .gtitle{
+  display:none !important;
+}
+.plot .legend{
+  transform:translateY(8px);
+}
+@media (max-width:760px){
+  .plot{padding-top:22px !important;}
+}
+
+/* ===== Correction réelle des graphiques avec libellés longs ===== */
+.chart-card{
+  overflow: visible !important;
+}
+.chart-top{
+  position: relative;
+  z-index: 2;
+}
+.plot{
+  width: 100% !important;
+  min-height: 620px;
+  overflow: visible !important;
+}
+.js-plotly-plot,
+.plot-container,
+.svg-container{
+  overflow: visible !important;
+}
+@media (max-width: 1100px){
+  .main{padding:18px !important;}
+  .plot{min-height:560px;}
+}
+
+/* =====================================================
+   MISE À JOUR LOGOS SVG + CARTE RÉGIONALE
+   Logo noir dans le sidebar, logo blanc + carte dans l'accueil
+===================================================== */
+.sidebar{
+  background:
+    radial-gradient(circle at 35% 0%, rgba(37,99,235,.14), transparent 34%),
+    linear-gradient(180deg, rgba(255,255,255,.97), rgba(241,245,249,.95));
+  color:#0f172a;
+  border-right:1px solid rgba(15,23,42,.10);
+  box-shadow:16px 0 48px rgba(15,23,42,.08);
+}
+
+.brand-vertical{
+  border-bottom:1px solid rgba(15,23,42,.10);
+}
+
+.region-logo-large{
+  width:215px;
+  background:transparent;
+  filter:drop-shadow(0 14px 24px rgba(15,23,42,.12));
+}
+
+.brand-vertical h2{
+  color:#0f172a;
+}
+
+.brand-vertical p{
+  color:#1d4ed8;
+}
+
+.brand-vertical small,
+.menu-label{
+  color:#64748b;
+}
+
+.nav{
+  color:#334155;
+  background:rgba(15,23,42,.045);
+  border:1px solid rgba(15,23,42,.06);
+}
+
+.nav:hover,
+.nav.active{
+  color:#ffffff;
+  background:linear-gradient(135deg,#1d4ed8,#06b6d4);
+  box-shadow:0 14px 35px rgba(37,99,235,.22);
+}
+
+.hero-home{
+  background:
+    radial-gradient(circle at 80% 45%, rgba(6,182,212,.22), transparent 31%),
+    radial-gradient(circle at 0% 0%, rgba(37,99,235,.22), transparent 35%),
+    linear-gradient(135deg,#0f172a,#1e3a8a 55%,#0369a1);
+  color:#ffffff;
+}
+
+.hero-home h1,
+.hero-home p{
+  color:#ffffff;
+}
+
+.hero-home .eyebrow{
+  color:#e0f2fe;
+  background:rgba(255,255,255,.12);
+  border-color:rgba(255,255,255,.22);
+}
+
+.home-visual-card{
+  display:grid;
+  grid-template-rows:auto 1fr;
+  gap:20px;
+  place-items:center;
+  min-height:430px;
+  border-radius:34px;
+  background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.06));
+  border:1px solid rgba(255,255,255,.24);
+  box-shadow:0 28px 80px rgba(0,0,0,.24);
+  padding:26px;
+  backdrop-filter:blur(10px);
+}
+
+.home-white-logo{
+  width:235px;
+  max-width:86%;
+  height:auto;
+  background:transparent;
+  filter:drop-shadow(0 16px 30px rgba(0,0,0,.34));
+}
+
+.home-region-map{
+  width:min(520px,96%);
+  max-width:96%;
+  height:auto;
+  background:transparent;
+  filter:drop-shadow(0 24px 42px rgba(0,0,0,.32));
+  transform:translateY(4px);
+}
+
+@media(max-width:900px){
+  .home-visual-card{
+  display:grid;
+  grid-template-rows:auto 1fr;
+  gap:20px;
+  place-items:center;
+  min-height:430px;
+  border-radius:34px;
+  background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.06));
+  border:1px solid rgba(255,255,255,.24);
+  box-shadow:0 28px 80px rgba(0,0,0,.24);
+  padding:26px;
+  backdrop-filter:blur(10px);
+}
+  .home-white-logo{
+  width:235px;
+  max-width:86%;
+  height:auto;
+  background:transparent;
+  filter:drop-shadow(0 16px 30px rgba(0,0,0,.34));
+}
+  .home-region-map{
+  width:min(520px,96%);
+  max-width:96%;
+  height:auto;
+  background:transparent;
+  filter:drop-shadow(0 24px 42px rgba(0,0,0,.32));
+  transform:translateY(4px);
+}
+}
+
+/* ===== Mise en valeur de la carte régionale et des nouveaux graphiques ===== */
+.chart-card .plot{
+  min-height:560px;
+}
+#accueil .home-visual-card{
+  overflow:hidden;
+}
+
+
+/* ===== Mise à jour : carte MAP plus grande dans la page d'accueil ===== */
+.hero-home{
+  grid-template-columns: minmax(360px, 0.85fr) minmax(680px, 1.45fr);
+  align-items:center;
+}
+.home-visual-card{
+  min-height:680px;
+  padding:26px 22px;
+}
+.home-region-map{
+  width:min(980px, 100%);
+  max-width:100%;
+}
+.home-white-logo{
+  width:260px;
+}
+@media(max-width:1200px){
+  .hero-home{grid-template-columns:1fr;}
+  .home-visual-card{min-height:560px;}
+  .home-region-map{width:min(840px,100%);}
+}
+
+
+/* =====================================================
+   CORRECTION CARTES METADONNEES / DEFINITIONS
+   - Les anciennes cartes modifiables sont supprimées de la page.
+   - Les 4 cartes Word gardent la même taille.
+   - Pas de chevauchement avec la sidebar.
+===================================================== */
+#metadata .metadata-download-panel{
+  max-width:100% !important;
+  margin:24px 0 34px !important;
+  padding:22px !important;
+  overflow:visible !important;
+}
+#metadata .download-grid,
+#metadata .compact-download-grid{
+  display:grid !important;
+  grid-template-columns:repeat(4, minmax(190px, 1fr)) !important;
+  gap:18px !important;
+  align-items:stretch !important;
+}
+#metadata .download-card{
+  min-height:165px !important;
+  height:auto !important;
+  padding:18px !important;
+  border-radius:20px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-start !important;
+  overflow:hidden !important;
+}
+#metadata .download-card h3{
+  min-height:auto !important;
+  margin:0 0 8px !important;
+  font-size:20px !important;
+  line-height:1.25 !important;
+}
+#metadata .download-card p{
+  flex:1 1 auto !important;
+  margin:0 0 12px !important;
+  font-size:14px !important;
+  line-height:1.45 !important;
+}
+#metadata .download-card b{
+  margin-top:auto !important;
+}
+#metadata .download-icon{
+  width:38px !important;
+  height:38px !important;
+  margin-bottom:10px !important;
+}
+#metadata .metadata-docs-grid,
+#metadata .metadata-doc-card{
+  display:none !important;
+}
+@media (max-width:1250px){
+  #metadata .download-grid,
+  #metadata .compact-download-grid{grid-template-columns:repeat(2, minmax(0, 1fr)) !important;}
+}
+@media (max-width:760px){
+  #metadata .download-grid,
+  #metadata .compact-download-grid{grid-template-columns:1fr !important;}
+  #metadata .download-card{min-height:auto !important;}
+}

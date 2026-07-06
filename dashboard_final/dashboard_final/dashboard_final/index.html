@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Territorial — Guelmim-Oued Noun</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <link href="style.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/logo_hcp.png">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand brand-vertical">
+        <a href="index.html">
+        <img src="assets/logo-black.svg" class="region-logo-large" alt="Logo Région Guelmim-Oued Noun" />
+        </a>
+        <h2>Dashboard Territorial</h2>
+        <p>Analyse & Prédiction</p>
+        <small>Région Guelmim-Oued Noun</small>
+      </div>
+
+      <div class="menu-label">Navigation</div>
+      <button class="nav active" data-page="accueil"><span></span><b>Accueil</b></button>
+      <button class="nav" data-page="dashboard"><span></span><b>Dashboard</b></button>
+      <button class="nav" data-page="prediction"><span></span><b>Prédiction</b></button>
+      <button class="nav" data-page="metadata"><span></span><b>Métadonnées</b></button>
+    </aside>
+
+    <main class="main">
+      <section class="page active" id="accueil">
+        <div class="hero hero-home">
+          <div>
+            <span class="eyebrow">Projet de Stage Fin d'Études · Analyse territoriale</span>
+            <h1>Région Guelmim-Oued Noun</h1>
+            <p>
+              Cette plateforme présente une lecture territoriale structurée de la région de
+              Guelmim-Oued Noun. Elle met en valeur son identité géographique, son évolution
+              démographique, ses dynamiques économiques et sociales, ainsi que les projections
+              futures avec l'analyse et la prédiction.
+            </p>
+            <div class="hero-actions">
+              <button class="primary-btn" onclick="showPage('dashboard')">Ouvrir le Dashboard</button>
+              <button class="secondary-btn" onclick="showPage('prediction')">Voir la prédiction</button>
+            </div>
+          </div>
+          <div class="home-visual-card">
+            <img src="assets/logo-white.svg" class="home-white-logo" alt="Logo Région Guelmim-Oued Noun" />
+            <img src="assets/map-guelmim.png" class="home-region-map" alt="Carte de la région Guelmim-Oued Noun" />
+          </div>
+        </div>
+
+        <div class="intro-card region-card">
+          <h2>Présentation de la région</h2>
+          <p>
+            La région de Guelmim-Oued Noun est située au sud du Royaume du Maroc. Elle constitue
+            un espace de transition entre les régions du centre du pays et les provinces du Sud.
+            Elle regroupe principalement les provinces de Guelmim, Assa-Zag, Tan-Tan et Sidi Ifni.
+          </p>
+          <p>
+            Grâce à sa position géographique, la région joue un rôle stratégique dans la mobilité
+            des populations, les échanges économiques et l’organisation territoriale du sud marocain.
+            Elle dispose également d’un potentiel important lié au commerce, aux services, à la pêche,
+            à l’élevage, au tourisme et aux activités économiques locales.
+          </p>
+        </div>
+
+        <div class="intro-card region-card">
+          <h2>Évolution et dynamique territoriale</h2>
+          <p>
+            Au cours des dernières années, Guelmim-Oued Noun a connu une transformation progressive
+            marquée par l’amélioration des infrastructures, le développement des équipements publics
+            et le renforcement de l’accès aux services de base. Cette évolution concerne notamment
+            les domaines de l’éducation, de la santé, du logement et des infrastructures urbaines.
+          </p>
+          <p>
+            Sur le plan démographique, la région présente des dynamiques liées à la structure par âge,
+            à la répartition de la population et aux mouvements migratoires. Ces indicateurs permettent
+            de mieux comprendre les besoins territoriaux actuels et futurs.
+          </p>
+          <p>
+            Sur le plan économique et social, l’évolution de la région peut être observée à travers
+            la création de richesse, le développement des établissements économiques, l’emploi,
+            la réduction des disparités territoriales et l’amélioration progressive des conditions de vie.
+          </p>
+        </div>
+
+        <div class="overview-grid">
+          <a class="overview-card overview-link" href="#dashboard-domain-demographie" onclick="showDomain('analysis','demographie'); return false;">
+            <span>01</span><h3>Démographie</h3><p>Âge, sexe, fécondité et migration.</p>
+          </a>
+          <a class="overview-card overview-link" href="#dashboard-domain-economie" onclick="showDomain('analysis','economie'); return false;">
+            <span>02</span><h3>Économie</h3><p>PIB régional, IPC, secteurs et établissements économiques.</p>
+          </a>
+          <a class="overview-card overview-link" href="#dashboard-domain-social" onclick="showDomain('analysis','social'); return false;">
+            <span>03</span><h3>Social</h3><p>Pauvreté, éducation et santé.</p>
+          </a>
+          <a class="overview-card overview-link" href="#dashboard-domain-logement" onclick="showDomain('analysis','logement'); return false;">
+            <span>04</span><h3>Logement</h3><p>Parc de logements et services de base.</p>
+          </a>
+        </div>
+
+        
+      </section>
+
+      <section class="page" id="dashboard">
+        <div id="dashboard-home">
+          <div class="hero compact-hero">
+            <span class="eyebrow">Dashboard</span>
+            <h1>Choisissez un dossier d’analyse</h1>
+          </div>
+          <div class="cards-grid" id="analysis-domain-cards"></div>
+        </div>
+        <div id="analysis-domain-container"></div>
+      </section>
+
+      <section class="page" id="prediction">
+        <div id="prediction-home">
+          <div class="hero compact-hero prediction-hero">
+            <span class="eyebrow">Prédiction </span>
+            <h1>Prévision territoriale</h1>
+          </div>
+          <div class="cards-grid" id="prediction-domain-cards"></div>
+        </div>
+        <div id="prediction-domain-container"></div>
+      </section>
+
+
+      <section class="page" id="metadata">
+        <div class="hero compact-hero metadata-hero">
+          <span class="eyebrow">Métadonnées</span>
+          <h1>Documentation </h1>
+          <p> fichiers Word explicatifs  : Démographie, Économie, Social et Logement.</p>
+        </div>
+
+      
+
+
+
+        <section class="metadata-download-panel">
+          <div class="metadata-download-head">
+            <div>
+              <span class="eyebrow">Documents Word</span>
+              <h2></h2>
+              <p>Cliquez sur une carte pour télécharger le fichier Word correspondant.</p>
+            </div>
+          </div>
+
+          <div class="download-grid compact-download-grid">
+            <a class="download-card" href="docs/Demographie_Detaillee.docx" download>
+              <span class="download-icon"></span>
+              <h3>Démographie</h3>
+              <p>Population, structure par âge, sexe et migrations.</p>
+              <b>Télécharger Word</b>
+            </a>
+
+            <a class="download-card" href="docs/Economie_Detaillee.docx" download>
+              <span class="download-icon"></span>
+              <h3>Économie</h3>
+              <p>PIB, IPC, secteurs et établissements économiques.</p>
+              <b>Télécharger Word</b>
+            </a>
+
+            <a class="download-card" href="docs/Social_Detaillee.docx" download>
+              <span class="download-icon"></span>
+              <h3>Social</h3>
+              <p>Pauvreté, éducation, santé et indicateurs sociaux.</p>
+              <b>Télécharger Word</b>
+            </a>
+
+            <a class="download-card" href="docs/Logement_Detaillee.docx" download>
+              <span class="download-icon"></span>
+              <h3>Logement</h3>
+              <p>Parc de logements, occupation et habitat.</p>
+              <b>Télécharger Word</b>
+            </a>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="figures.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
